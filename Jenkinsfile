@@ -18,18 +18,15 @@ pipeline{
             }
         }
         
+
         stage("SCA"){
             steps{
                 bat 'mvn sonar:sonar -Dserver.host.url=http://localhost:9090'
             }
         }
         
-         stage("Dummy"){
-            steps{
-                echo 'Dummy message'
-            }
-        }
-        
+                
+ 
         
     }
 }
