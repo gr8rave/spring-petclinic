@@ -18,12 +18,22 @@ pipeline{
             }
         }
         
-         stage("Dummy"){
-            steps{
-                echo 'Dummy message'
-            }
+                 
+        stage ('static code analysis'){
+			steps {
+				dir ("$(SRC_DIR){
+				withSonarQubeEnv ('localsonar'){
+			bat "sonar-scanner -Dsonar.host.url=http://localhost:9090"
+			}
+		script {
+			def qualitygate= waitForQualityGate()
+				if (qualitygate.status != "Pass") {
+				error "Pipeline abborted"
+				
         }
-        
-        
+		}
+		}
+		}
+		}	
     }
 }
