@@ -18,6 +18,12 @@ pipeline{
             }
         }
         
+         stage("Dummy"){
+            steps{
+                echo 'Dummy message'
+            }
+        }
+        
         
     }
 }
