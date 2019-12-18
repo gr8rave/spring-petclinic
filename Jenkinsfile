@@ -21,7 +21,7 @@ pipeline{
 
         stage("SCA"){
             steps{
-                bat 'mvn sonar:sonar -Dserver.host.url=http://localhost:9090'
+                bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9090'
             }
         }
         
