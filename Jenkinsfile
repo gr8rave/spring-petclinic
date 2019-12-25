@@ -14,16 +14,12 @@ pipeline{
         
         stage("Build"){
             steps{
-                bat 'mvn clean package'
+                Sh 'mvn clean package'
             }
         }
         
 
-        stage("Static Code Analysis"){
-            steps{
-                bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9090'
-            }
-        }
+       
         
 
         
